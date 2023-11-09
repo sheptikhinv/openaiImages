@@ -6,7 +6,8 @@ config = ConfigParser()
 def get_token() -> str:
     try:
         file = open("settings.ini", "x")
-    except FileNotFoundError:
+        file.close()
+    except FileExistsError:
         pass
 
     config.read("settings.ini")
@@ -26,7 +27,8 @@ def get_token() -> str:
 def get_openai_token() -> str:
     try:
         file = open("settings.ini", "x")
-    except FileNotFoundError:
+        file.close()
+    except FileExistsError:
         pass
 
     config.read("settings.ini")
